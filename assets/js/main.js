@@ -1,78 +1,143 @@
 // assets/js/main.js
-// Countdown to 28 June 2026 14:00
-const targetDate = new Date('2026-06-28T14:00:00');
+
+// Countdown Logic
+const targetDate = new Date("June 28, 2026 14:00:00").getTime();
+
 function updateCountdown() {
-  const now = new Date();
-  const diff = targetDate - now;
-  if (diff <= 0) {
-    document.getElementById('countdown').innerHTML = '<div>Evento começou!</div>';
-    clearInterval(timer);
-    return;
-  }
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-  document.getElementById('days').textContent = String(days).padStart(2, '0');
-  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+    if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+    if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
+    if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+
+    if (distance < 0) {
+        clearInterval(interval);
+        const countdownEl = document.getElementById("countdown");
+        if (countdownEl) {
+            countdownEl.innerHTML = "<h2 class='font-headline-lg text-primary italic text-3xl md:text-5xl'>O JOGO COMEÇOU! ⚽</h2>";
+        }
+    }
 }
-const timer = setInterval(updateCountdown, 1000);
+
+const interval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// RSVP handling using localStorage
-const form = document.getElementById('rsvp-form');
-const msg = document.getElementById('rsvp-message');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const attendance = document.getElementById('attendance').value;
-  const entry = { name, email, attendance, timestamp: new Date().toISOString() };
-  const existing = JSON.parse(localStorage.getItem('rsvp') || '[]');
-  existing.push(entry);
-  localStorage.setItem('rsvp', JSON.stringify(existing));
-  form.reset();
-  msg.textContent = `Obrigado, ${name}! Sua confirmação foi registrada.`;
-  msg.classList.remove('hidden');
-});
+// Mobile Menu Toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
 
-// Photo carousel population (placeholder images)
-const carousel = document.getElementById('photo-carousel');
-const photos = [
-  'assets/img/pedro1.png',
-  // add more if you have them
-];
-photos.forEach(src => {
-  const img = document.createElement('img');
-  img.src = src;
-  img.alt = 'Foto do Pedro';
-  carousel.appendChild(img);
-});
+// Player Card Live Preview
+const inputCardName = document.getElementById('input-card-name');
+const inputCardPos = document.getElementById('input-card-pos');
+const inputCardCountry = document.getElementById('input-card-country');
 
-// Album upload preview
-const upload = document.getElementById('upload');
+const cardName = document.getElementById('card-name');
+const cardPos = document.getElementById('card-pos');
+const cardCountry = document.getElementById('card-country');
+
+if (inputCardName && cardName) {
+    inputCardName.addEventListener('input', (e) => {
+        cardName.innerText = e.target.value.toUpperCase() || 'SEU NOME';
+    });
+}
+if (inputCardPos && cardPos) {
+    inputCardPos.addEventListener('change', (e) => {
+        cardPos.innerText = `POSIÇÃO: ${e.target.value.toUpperCase()}`;
+    });
+}
+if (inputCardCountry && cardCountry) {
+    inputCardCountry.addEventListener('input', (e) => {
+        cardCountry.innerText = `PAÍS: ${e.target.value.toUpperCase()}`;
+    });
+}
+
+// RSVP Form Logic
+const rsvpForm = document.getElementById('rsvp-form');
+const rsvpMessage = document.getElementById('rsvp-message');
+
+if (rsvpForm) {
+    rsvpForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('rsvp-name').value.trim();
+        const team = document.getElementById('rsvp-team').value.trim();
+        const presence = document.querySelector('input[name="presence"]:checked').value;
+        
+        const rsvpData = {
+            name,
+            team,
+            presence,
+            timestamp: new Date().toISOString()
+        };
+        
+        // Save to localStorage
+        const allRsvps = JSON.parse(localStorage.getItem('rsvp_list') || '[]');
+        allRsvps.push(rsvpData);
+        localStorage.setItem('rsvp_list', JSON.stringify(allRsvps));
+        
+        // Reset form
+        rsvpForm.reset();
+        
+        // Show success message
+        if (rsvpMessage) {
+            rsvpMessage.innerText = presence === 'sim' 
+                ? `SUA ESCALAÇÃO FOI CONFIRMADA, ${name.toUpperCase()}! ⚽`
+                : `REGISTRADO! SENTIREMOS SUA FALTA NA ESCALAÇÃO, ${name.toUpperCase()}!`;
+            rsvpMessage.classList.remove('hidden');
+        }
+    });
+}
+
+// QR Code Generator
+const qrcodeContainer = document.getElementById('qrcode');
+if (qrcodeContainer) {
+    // Generates a QR code linking to the live site / album
+    const currentUrl = window.location.href;
+    QRCode.toCanvas(qrcodeContainer, currentUrl, {
+        width: 160,
+        margin: 1,
+        color: {
+            dark: '#121314',
+            light: '#ffffff'
+        }
+    }, function (error) {
+        if (error) console.error(error);
+    });
+}
+
+// Upload Previews
+const uploadInput = document.getElementById('upload');
 const previewGrid = document.getElementById('preview-grid');
-upload.addEventListener('change', () => {
-  previewGrid.innerHTML = '';
-  const files = Array.from(upload.files);
-  files.forEach(file => {
-    const url = URL.createObjectURL(file);
-    const img = document.createElement('img');
-    img.src = url;
-    img.alt = file.name;
-    previewGrid.appendChild(img);
-  });
-});
-
-// QR Code generation (link placeholder – replace with actual link)
-const qrDiv = document.getElementById('qrcode');
-const qrLink = 'https://example.com/album'; // TODO: replace with real link
-QRcode.toCanvas(qrDiv, qrLink, { width: 180, color: { dark: '#ffda44', light: '#0a0a0a' } }, function (error) {
-  if (error) console.error(error);
-});
-
-// Set age placeholder (you can modify directly in HTML or set here)
-const ageSpan = document.getElementById('age');
-ageSpan.textContent = 'X'; // TODO: replace X with Pedro's age
+if (uploadInput && previewGrid) {
+    uploadInput.addEventListener('change', (e) => {
+        previewGrid.innerHTML = '';
+        const files = Array.from(e.target.files);
+        files.forEach(file => {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = document.createElement('img');
+                img.src = event.target.result;
+                img.className = 'w-full h-16 object-cover border border-secondary-fixed/50 rounded';
+                previewGrid.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        });
+    });
+}
