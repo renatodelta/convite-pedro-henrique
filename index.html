@@ -339,9 +339,10 @@
 
                             <div class="my-6 text-center z-10">
                                 <div
-                                    class="w-24 h-24 mx-auto rounded-full border-4 border-primary overflow-hidden bg-surface-variant flex items-center justify-center mb-4">
+                                    class="w-24 h-24 mx-auto rounded-full border-4 border-primary overflow-hidden bg-surface-variant flex items-center justify-center mb-4" id="card-photo-container">
                                     <span
-                                        class="material-symbols-outlined text-5xl text-on-surface-variant">person</span>
+                                        class="material-symbols-outlined text-5xl text-on-surface-variant" id="card-photo-placeholder">person</span>
+                                    <img src="" class="hidden w-full h-full object-cover" id="card-photo-img" alt="Foto do jogador" />
                                 </div>
                                 <h3 class="font-headline-md text-xl tracking-tight text-on-surface" id="card-name">SEU
                                     NOME</h3>
@@ -389,6 +390,12 @@
                                 id="input-card-country" type="text" placeholder="Ex: Brasil, Argentina, etc."
                                 value="Brasil 🇧🇷" />
                         </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Sua Foto (opcional)</label>
+                            <input
+                                class="w-full bg-surface-container border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-2 px-2 text-sm"
+                                id="input-card-photo" type="file" accept="image/*" />
+                        </div>
                         <button
                             class="w-full bg-secondary-container text-on-secondary-container py-3 font-label-caps text-label-caps uppercase hover:scale-[1.02] active:scale-95 transition-all"
                             onclick="window.print()">
@@ -430,7 +437,7 @@
                             <h3 class="font-headline-md text-stats-number text-on-surface mb-2">Transmissão FIFA</h3>
                             <p class="font-body-md text-on-surface-variant leading-relaxed">
                                 "Diretamente da Arena Pedro Henrique, começa agora a grande final! Pedro Henrique
-                                completa 9 anos e convoca todos os craques para essa partida inesquecível!"
+                                completa 6 anos e convoca todos os craques para essa partida inesquecível!"
                             </p>
                         </div>
                         <div class="glass-panel p-md border-t-2 border-secondary-fixed">
@@ -592,15 +599,11 @@
                 </div>
 
                 <!-- Google Map Embed & styled container -->
-                <div class="w-full h-[400px] glass-panel border-4 border-surface-variant overflow-hidden relative bg-surface-container">
+                <div
+                    class="w-full h-[400px] glass-panel border-4 border-surface-variant overflow-hidden relative bg-surface-container">
                     <iframe
                         src="https://maps.google.com/maps?q=-23.213566372054963,-45.84899850941917&t=&z=17&ie=UTF8&iwloc=&output=embed"
-                        width="100%"
-                        height="100%"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                    ></iframe>
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </section>

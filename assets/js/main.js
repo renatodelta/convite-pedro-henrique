@@ -68,6 +68,30 @@ if (inputCardCountry && cardCountry) {
     });
 }
 
+// Player Card Photo Preview
+const inputCardPhoto = document.getElementById('input-card-photo');
+const cardPhotoPlaceholder = document.getElementById('card-photo-placeholder');
+const cardPhotoImg = document.getElementById('card-photo-img');
+
+if (inputCardPhoto && cardPhotoImg && cardPhotoPlaceholder) {
+    inputCardPhoto.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                cardPhotoImg.src = event.target.result;
+                cardPhotoImg.classList.remove('hidden');
+                cardPhotoPlaceholder.classList.add('hidden');
+            };
+            reader.readAsDataURL(file);
+        } else {
+            cardPhotoImg.src = '';
+            cardPhotoImg.classList.add('hidden');
+            cardPhotoPlaceholder.classList.remove('hidden');
+        }
+    });
+}
+
 // RSVP Form Logic
 const rsvpForm = document.getElementById('rsvp-form');
 const rsvpMessage = document.getElementById('rsvp-message');
