@@ -1,7 +1,7 @@
 // assets/js/main.js
 
 // Countdown Logic
-const targetDate = new Date("June 28, 2026 14:00:00").getTime();
+const targetDate = new Date("June 28, 2026 16:00:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
