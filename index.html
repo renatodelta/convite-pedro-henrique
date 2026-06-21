@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copa do Pedro 2026</title>
+    <meta name="description" content="Convite digital animado para o aniversário de Pedro Henrique, tema Copa do Mundo 2026" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🏆 COPA DO PEDRO 2026 🏆</h1>
+            <p class="invitation-text">
+                Chegou a hora da grande final!<br />
+                Venha comemorar os <strong id="age"></strong> anos do Pedro em uma festa cheia de gols, diversão e muita torcida!
+            </p>
+            <div class="countdown" id="countdown">
+                <div><span id="days">00</span><small>Dias</small></div>
+                <div><span id="hours">00</span><small>Horas</small></div>
+                <div><span id="minutes">00</span><small>Min</small></div>
+                <div><span id="seconds">00</span><small>Seg</small></div>
+            </div>
+            <p class="event-details">
+                📅 Domingo, 28 de junho de 2026<br />
+                ⏰ 14h00<br />
+                🏟️ Arena Pedro (Nossa Casa)
+            </p>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="section" id="rsvp">
+        <h2>Confirmação de Presença (RSVP)</h2>
+        <form id="rsvp-form">
+            <input type="text" id="name" placeholder="Seu nome" required />
+            <input type="email" id="email" placeholder="E‑mail (opcional)" />
+            <select id="attendance" required>
+                <option value="" disabled selected>Vai comparecer?</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+            <button type="submit">Confirmar</button>
+        </form>
+        <p id="rsvp-message" class="hidden"></p>
+    </section>
+
+    <!-- Localização -->
+    <section class="section" id="map">
+        <h2>Localização</h2>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.123456789!2d-46.633309!3d-23.550520!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x939efdbb4d23d9b%3A0x123456789abcd!2sArena%20Pedro!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+                width="100%"
+                height="300"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+            ></iframe>
+        </div>
+    </section>
+
+    <!-- Fotos do Pedro -->
+    <section class="section" id="photos">
+        <h2>Galeria do Pedro</h2>
+        <div class="carousel" id="photo-carousel">
+            <!-- Images will be inserted by JS -->
+        </div>
+    </section>
+
+    <!-- Playlist -->
+    <section class="section" id="playlist">
+        <h2>Playlist da Copa</h2>
+        <div class="playlist-container">
+            <!-- Replace src with your Spotify/YouTube playlist embed -->
+            <iframe
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M"
+                width="100%"
+                height="380"
+                frameborder="0"
+                allowtransparency="true"
+                allow="encrypted-media"
+            ></iframe>
+        </div>
+    </section>
+
+    <!-- Álbum de Fotos dos Convidados -->
+    <section class="section" id="album">
+        <h2>Álbum de Fotos dos Convidados</h2>
+        <input type="file" id="upload" multiple accept="image/*" />
+        <div class="preview-grid" id="preview-grid"></div>
+    </section>
+
+    <!-- QR Code -->
+    <section class="section" id="qr">
+        <h2>QR Code para Compartilhar Fotos</h2>
+        <div id="qrcode"></div>
+        <p>Escaneie para acessar a pasta de fotos do evento.</p>
+    </section>
+
+    <footer>
+        <p>Feito com ❤️ para o Pedro Henrique</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
