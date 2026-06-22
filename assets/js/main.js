@@ -158,9 +158,9 @@ if (rsvpForm) {
 // QR Code Generator
 const qrcodeContainer = document.getElementById('qrcode');
 if (qrcodeContainer) {
-    // Generates a QR code linking to the live site / album
-    const currentUrl = window.location.href;
-    QRCode.toCanvas(qrcodeContainer, currentUrl, {
+    // Generates a QR code linking to the Google Photos album
+    const albumUrl = "https://photos.app.goo.gl/X8ryy4dxcpn3j3QXA";
+    QRCode.toCanvas(qrcodeContainer, albumUrl, {
         width: 160,
         margin: 1,
         color: {
