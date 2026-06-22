@@ -111,21 +111,47 @@ if (rsvpForm) {
             timestamp: new Date().toISOString()
         };
         
-        // Save to localStorage
+        // Save to localStorage (Local Backup)
         const allRsvps = JSON.parse(localStorage.getItem('rsvp_list') || '[]');
         allRsvps.push(rsvpData);
         localStorage.setItem('rsvp_list', JSON.stringify(allRsvps));
-        
-        // Reset form
-        rsvpForm.reset();
-        
-        // Show success message
-        if (rsvpMessage) {
-            rsvpMessage.innerText = presence === 'sim' 
-                ? `SUA ESCALAÇÃO FOI CONFIRMADA, ${name.toUpperCase()}! ⚽`
-                : `REGISTRADO! SENTIREMOS SUA FALTA NA ESCALAÇÃO, ${name.toUpperCase()}!`;
-            rsvpMessage.classList.remove('hidden');
-        }
+
+        // Submit to Google Forms (No-CORS Mode)
+        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc3Ijjacjnd2bmRxksFMkFIlrWSVEFYD5U1ArlsXLVfJJ_mUA/formResponse";
+        const formData = new URLSearchParams();
+        formData.append("entry.558665171", name);
+        formData.append("entry.1400950249", team);
+        formData.append("entry.594822132", presence === 'sim' ? 'Sim' : 'Não');
+
+        fetch(formUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData.toString()
+        })
+        .then(() => {
+            // Reset form
+            rsvpForm.reset();
+            
+            // Show success message
+            if (rsvpMessage) {
+                rsvpMessage.innerText = presence === 'sim' 
+                    ? `SUA ESCALAÇÃO FOI CONFIRMADA, ${name.toUpperCase()}! ⚽`
+                    : `REGISTRADO! SENTIREMOS SUA FALTA NA ESCALAÇÃO, ${name.toUpperCase()}!`;
+                rsvpMessage.classList.remove('hidden');
+            }
+        })
+        .catch(err => {
+            console.error("Google Forms submission error:", err);
+            // Fallback: still show message since local storage worked
+            rsvpForm.reset();
+            if (rsvpMessage) {
+                rsvpMessage.innerText = `SALVO LOCALMENTE! OBRIGADO, ${name.toUpperCase()}!`;
+                rsvpMessage.classList.remove('hidden');
+            }
+        });
     });
 }
 
