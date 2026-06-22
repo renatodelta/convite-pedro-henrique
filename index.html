@@ -112,6 +112,7 @@
         }
     </script>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="assets/img/favicon.png" type="image/png">
 </head>
 
 <body
@@ -259,7 +260,7 @@
                         </div>
                         <div class="flex items-center gap-sm mt-2">
                             <span class="material-symbols-outlined text-secondary-fixed">schedule</span>
-                            <span class="font-headline-md text-body-lg">16h00 Sharp</span>
+                            <span class="font-headline-md text-body-lg">16h00</span>
                         </div>
                     </div>
                     <div class="glass-panel p-md border-t-2 border-primary">
@@ -284,7 +285,8 @@
                     </div>
                     <div>
                         <h4 class="font-headline-md text-stats-number mb-1">Música no Estádio</h4>
-                        <p class="font-body-md text-on-surface-variant">Playlist oficial com os maiores hits da Copa para animar a torcida.
+                        <p class="font-body-md text-on-surface-variant">Playlist oficial com os maiores hits da Copa
+                            para animar a torcida.
                         </p>
                     </div>
                 </div>
@@ -304,108 +306,16 @@
                     </div>
                     <div>
                         <h4 class="font-headline-md text-stats-number mb-1">Cerimônia da Taça</h4>
-                        <p class="font-body-md text-on-surface-variant">O grande momento do parabéns para partir o bolo do campeão.</p>
+                        <p class="font-body-md text-on-surface-variant">O grande momento do parabéns para partir o bolo
+                            do campeão.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Lineup / Escalação Convidado Section -->
-        <section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="lineup">
-            <div class="max-w-4xl mx-auto glass-panel p-md md:p-xl border-l-4 border-secondary-fixed">
-                <div class="text-center mb-8">
-                    <h2 class="font-headline-lg text-headline-lg text-secondary-fixed uppercase italic mb-2">SELEÇÃO DA
-                        FESTA DO PEDRO HENRIQUE</h2>
-                    <p class="font-body-md text-on-surface-variant">Crie o seu cartão de convocação de jogador oficial
-                        da Copa 2026!</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
-                    <!-- Preview Card -->
-                    <div class="flex justify-center">
-                        <div
-                            class="w-72 bg-gradient-to-br from-surface-container to-surface-container-high border-2 border-secondary-fixed p-6 rounded-xl relative shadow-2xl flex flex-col justify-between min-h-[400px]">
-                            <!-- Hexagonal background overlay -->
-                            <div
-                                class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(65,236,116,0.05)_0%,transparent_70%)] pointer-events-none">
-                            </div>
+        
 
-                            <div class="flex justify-between items-start z-10">
-                                <span
-                                    class="font-label-caps text-xs text-secondary-fixed border border-secondary-fixed/30 px-2 py-0.5 uppercase">VIP
-                                    TICKET</span>
-                                <span class="material-symbols-outlined text-primary">sports_soccer</span>
-                            </div>
-
-                            <div class="my-6 text-center z-10">
-                                <div class="w-24 h-24 mx-auto rounded-full border-4 border-primary overflow-hidden bg-surface-variant flex items-center justify-center mb-4"
-                                    id="card-photo-container">
-                                    <span class="material-symbols-outlined text-5xl text-on-surface-variant"
-                                        id="card-photo-placeholder">person</span>
-                                    <img src="" class="hidden w-full h-full object-cover" id="card-photo-img"
-                                        alt="Foto do jogador" />
-                                </div>
-                                <h3 class="font-headline-md text-xl tracking-tight text-on-surface" id="card-name">SEU
-                                    NOME</h3>
-                                <p class="font-label-caps text-primary text-xs uppercase mt-1" id="card-pos">POSIÇÃO:
-                                    ATACANTE</p>
-                                <p class="font-body-md text-xs text-on-surface-variant mt-2" id="card-country">PAÍS:
-                                    BRASIL 🇧🇷</p>
-                            </div>
-
-                            <div
-                                class="border-t border-outline-variant pt-4 flex justify-between items-center text-xs z-10 text-on-surface-variant">
-                                <span>28/06/2026</span>
-                                <span>GRUPO A</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Options Form -->
-                    <div class="space-y-md">
-                        <div class="space-y-xs">
-                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Seu Nome
-                                para o Cartão</label>
-                            <input
-                                class="w-full bg-surface-container border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-2"
-                                id="input-card-name" type="text" placeholder="Digite seu nome"
-                                value="Convidado Craque" />
-                        </div>
-                        <div class="space-y-xs">
-                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Escolha sua
-                                Posição</label>
-                            <select
-                                class="w-full bg-surface-container border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-2"
-                                id="input-card-pos">
-                                <option value="Atacante">Atacante ⚽</option>
-                                <option value="Zagueiro">Zagueiro 🛡️</option>
-                                <option value="Goleiro">Goleiro 🧤</option>
-                                <option value="Técnico">Técnico 📋</option>
-                            </select>
-                        </div>
-                        <div class="space-y-xs">
-                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">País que
-                                Representa</label>
-                            <input
-                                class="w-full bg-surface-container border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-2"
-                                id="input-card-country" type="text" placeholder="Ex: Brasil, Argentina, etc."
-                                value="Brasil 🇧🇷" />
-                        </div>
-                        <div class="space-y-xs">
-                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Sua Foto
-                                (opcional)</label>
-                            <input
-                                class="w-full bg-surface-container border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-2 px-2 text-sm"
-                                id="input-card-photo" type="file" accept="image/*" />
-                        </div>
-                        <button
-                            class="w-full bg-secondary-container text-on-secondary-container py-3 font-label-caps text-label-caps uppercase hover:scale-[1.02] active:scale-95 transition-all"
-                            onclick="window.print()">
-                            <span class="material-symbols-outlined align-middle mr-1">print</span> Imprimir Escalação
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <!-- Photo Gallery (Pedro Gallery) -->
         <section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface" id="gallery">
@@ -445,7 +355,8 @@
                             <h3 class="font-headline-md text-stats-number text-on-surface mb-2">Playlist Oficial do
                                 Mundial</h3>
                             <div class="w-full mt-4">
-                                <iframe src="https://www.youtube.com/embed/videoseries?list=PLf3B-GFuXkDOyhU9d_H0OpDlTE5VsZCQh"
+                                <iframe
+                                    src="https://www.youtube.com/embed/videoseries?list=PLf3B-GFuXkDOyhU9d_H0OpDlTE5VsZCQh"
                                     width="100%" height="220" frameborder="0" allowtransparency="true"
                                     allow="encrypted-media" style="border-radius: 8px;"></iframe>
                             </div>
@@ -455,58 +366,9 @@
             </div>
         </section>
 
-        <!-- WhatsApp Stickers Section -->
-        <section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="stickers">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="font-headline-lg text-headline-lg text-primary uppercase italic mb-4">FIGURINHAS WHATSAPP
-                    </h2>
-                    <p class="font-body-md text-on-surface-variant">Prepare suas figurinhas para bombar nos grupos
-                        durante a partida!</p>
-                </div>
+        
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
-                    <!-- Sticker 1 -->
-                    <div class="glass-panel p-md flex flex-col items-center text-center border-t-2 border-primary">
-                        <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <span class="material-symbols-outlined text-4xl text-primary">sports_soccer</span>
-                        </div>
-                        <h4 class="font-headline-md text-lg text-on-surface">"Gol do Pedro Henrique!"</h4>
-                        <p class="font-body-md text-xs text-on-surface-variant mt-2">Dispare no grupo a cada grande
-                            lance da festa!</p>
-                    </div>
-                    <!-- Sticker 2 -->
-                    <div
-                        class="glass-panel p-md flex flex-col items-center text-center border-t-2 border-secondary-fixed">
-                        <div class="w-20 h-20 bg-secondary-fixed/20 rounded-full flex items-center justify-center mb-4">
-                            <span
-                                class="material-symbols-outlined text-4xl text-secondary-fixed">workspace_premium</span>
-                        </div>
-                        <h4 class="font-headline-md text-lg text-on-surface">"Craque da Festa"</h4>
-                        <p class="font-body-md text-xs text-on-surface-variant mt-2">Para homenagear o aniversariante e
-                            convidados.</p>
-                    </div>
-                    <!-- Sticker 3 -->
-                    <div class="glass-panel p-md flex flex-col items-center text-center border-t-2 border-primary">
-                        <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <span class="material-symbols-outlined text-4xl text-primary">military_tech</span>
-                        </div>
-                        <h4 class="font-headline-md text-lg text-on-surface">"Campeão 2026"</h4>
-                        <p class="font-body-md text-xs text-on-surface-variant mt-2">Pronto para quando cantarmos os
-                            parabéns.</p>
-                    </div>
-                    <!-- Sticker 4 -->
-                    <div class="glass-panel p-md flex flex-col items-center text-center border-t-2 border-error">
-                        <div class="w-20 h-20 bg-error/20 rounded-full flex items-center justify-center mb-4">
-                            <span class="material-symbols-outlined text-4xl text-error">visibility</span>
-                        </div>
-                        <h4 class="font-headline-md text-lg text-on-surface">"VAR Aprovou o Bolo!"</h4>
-                        <p class="font-body-md text-xs text-on-surface-variant mt-2">O juiz confirmou: o bolo está
-                            liberado!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <!-- RSVP Form Section -->
         <section class="py-xl px-margin-mobile md:px-margin-desktop relative overflow-hidden" id="rsvp">
@@ -613,17 +475,20 @@
         <section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="upload-section">
             <div class="max-w-3xl mx-auto">
                 <!-- QR Code card -->
-                <div class="glass-panel p-md md:p-xl flex flex-col items-center justify-center text-center border-t-4 border-primary">
-                    <h3 class="font-headline-md text-stats-number text-primary uppercase mb-4">ÁLBUM DE FOTOS DA FESTA</h3>
-                    <div class="bg-white p-4 rounded-lg inline-block mb-6 shadow-xl"><canvas id="qrcode"></canvas></div>
-                    <p class="font-body-md text-on-surface-variant max-w-md mb-6 leading-relaxed">
-                        Queremos registrar cada momento especial! Aponte a câmera do celular para o QR Code acima ou clique no botão abaixo para abrir o álbum compartilhado do Google Fotos e enviar as suas fotos da festa!
-                    </p>
-                    <a href="https://photos.app.goo.gl/X8ryy4dxcpn3j3QXA" target="_blank" class="bg-primary text-on-primary-fixed px-12 py-4 font-headline-md text-body-lg uppercase tracking-tight hover:scale-105 active:scale-95 transition-all flex items-center gap-base shard-clip">
-                        <span class="material-symbols-outlined text-xl">photo_camera</span> Enviar Fotos para o Álbum
-                    </a>
-                </div>
-            </div>
+        <div
+            class="glass-panel p-md md:p-xl flex flex-col items-center justify-center text-center border-t-4 border-primary">
+            <h3 class="font-headline-md text-stats-number text-primary uppercase mb-4">ÁLBUM DE FOTOS DA FESTA</h3>
+            <div class="bg-white p-4 rounded-lg inline-block mb-6 shadow-xl"><canvas id="qrcode"></canvas></div>
+            <p class="font-body-md text-on-surface-variant max-w-md mb-6 leading-relaxed">
+                Queremos registrar cada momento especial! Aponte a câmera do celular para o QR Code acima ou clique no
+                botão abaixo para abrir o álbum compartilhado do Google Fotos e enviar as suas fotos da festa!
+            </p>
+            <a href="https://photos.app.goo.gl/X8ryy4dxcpn3j3QXA" target="_blank"
+                class="bg-primary text-on-primary-fixed px-12 py-4 font-headline-md text-body-lg uppercase tracking-tight hover:scale-105 active:scale-95 transition-all flex items-center gap-base shard-clip">
+                <span class="material-symbols-outlined text-xl">photo_camera</span> Enviar Fotos para o Álbum
+            </a>
+        </div>
+        </div>
         </section>
     </main>
 
