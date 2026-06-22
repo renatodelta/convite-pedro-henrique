@@ -171,23 +171,3 @@ if (qrcodeContainer) {
         if (error) console.error(error);
     });
 }
-
-// Upload Previews
-const uploadInput = document.getElementById('upload');
-const previewGrid = document.getElementById('preview-grid');
-if (uploadInput && previewGrid) {
-    uploadInput.addEventListener('change', (e) => {
-        previewGrid.innerHTML = '';
-        const files = Array.from(e.target.files);
-        files.forEach(file => {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                const img = document.createElement('img');
-                img.src = event.target.result;
-                img.className = 'w-full h-16 object-cover border border-secondary-fixed/50 rounded';
-                previewGrid.appendChild(img);
-            };
-            reader.readAsDataURL(file);
-        });
-    });
-}

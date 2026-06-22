@@ -609,44 +609,19 @@
             </div>
         </section>
 
-        <!-- Album Upload & QR Code Section -->
+        <!-- Album & QR Code Section -->
         <section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="upload-section">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter">
+            <div class="max-w-3xl mx-auto">
                 <!-- QR Code card -->
-                <div
-                    class="glass-panel p-md flex flex-col items-center justify-center text-center border-t-4 border-primary">
-                    <h3 class="font-headline-md text-stats-number text-primary uppercase mb-4">QR CODE DO ÁLBUM</h3>
-                    <div class="bg-white p-4 rounded-lg inline-block mb-4 shadow-xl"><canvas id="qrcode"></canvas></div>
-                    <p class="font-body-md text-on-surface-variant max-w-sm mb-4">
-                        Aponte a câmera do celular para abrir o álbum compartilhado do Google Fotos e enviar as suas
-                        fotos!
+                <div class="glass-panel p-md md:p-xl flex flex-col items-center justify-center text-center border-t-4 border-primary">
+                    <h3 class="font-headline-md text-stats-number text-primary uppercase mb-4">ÁLBUM DE FOTOS DA FESTA</h3>
+                    <div class="bg-white p-4 rounded-lg inline-block mb-6 shadow-xl"><canvas id="qrcode"></canvas></div>
+                    <p class="font-body-md text-on-surface-variant max-w-md mb-6 leading-relaxed">
+                        Queremos registrar cada momento especial! Aponte a câmera do celular para o QR Code acima ou clique no botão abaixo para abrir o álbum compartilhado do Google Fotos e enviar as suas fotos da festa!
                     </p>
-                    <a href="https://photos.app.goo.gl/X8ryy4dxcpn3j3QXA" target="_blank" class="bg-primary text-on-primary-fixed px-6 py-3 font-label-caps text-label-caps uppercase hover:scale-105 active:scale-95 transition-all flex items-center gap-base">
-                        <span class="material-symbols-outlined text-sm">photo_album</span> Acessar Álbum
+                    <a href="https://photos.app.goo.gl/X8ryy4dxcpn3j3QXA" target="_blank" class="bg-primary text-on-primary-fixed px-12 py-4 font-headline-md text-body-lg uppercase tracking-tight hover:scale-105 active:scale-95 transition-all flex items-center gap-base shard-clip">
+                        <span class="material-symbols-outlined text-xl">photo_camera</span> Enviar Fotos para o Álbum
                     </a>
-                </div>
-
-                <!-- Guest Upload card -->
-                <div class="glass-panel p-md border-t-4 border-secondary-fixed">
-                    <h3 class="font-headline-md text-stats-number text-secondary-fixed uppercase mb-4">ENVIAR FOTOS
-                        AGORA</h3>
-                    <p class="font-body-md text-on-surface-variant mb-6">
-                        Envie suas fotos diretamente da festa para aparecerem na nossa galeria!
-                    </p>
-
-                    <div class="flex items-center justify-center w-full">
-                        <label
-                            class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-outline-variant rounded-lg cursor-pointer hover:border-primary transition-colors bg-surface-container">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                <span
-                                    class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">upload_file</span>
-                                <p class="font-label-caps text-xs text-on-surface-variant">Selecionar fotos</p>
-                            </div>
-                            <input class="hidden" id="upload" type="file" multiple accept="image/*" />
-                        </label>
-                    </div>
-
-                    <div class="preview-grid grid grid-cols-4 gap-xs mt-6" id="preview-grid"></div>
                 </div>
             </div>
         </section>
